@@ -1,784 +1,244 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<meta name="theme-color" content="#0d0221">
-<meta name="description" content="Toolbox Infinity — premium client-side utility workspace">
-<title>Toolbox Infinity — Utility Workspace</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>Toolbox Infinity - Multi-Utility SaaS Engine</title>
+    <style>
+        /* MILLION-DOLLAR ENTERPRISE GRADIENT OVERRIDES */
+        html, body {
+            background: radial-gradient(circle at 50% 0%, #1e1b4b 0%, #0f172a 75%, #020617 100%) !important;
+            margin: 0 !important;
+            padding: 0 !important;
+            width: 100% !important;
+            min-height: 100vh !important;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif !important;
+            color: #f8fafc;
+            overflow-x: hidden;
+        }
+        * { box-sizing: border-box; }
 
-<style>
-*{box-sizing:border-box;margin:0;padding:0}
-:root{
-  --bg:#070914;
-  --panel:rgba(16,20,38,.78);
-  --panel2:rgba(23,27,50,.72);
-  --border:rgba(255,255,255,.10);
-  --text:#eef1ff;
-  --muted:#9ba4c7;
-  --accent:#00f0ff;
-  --accent2:#ff00e4;
-  --success:#39ff88;
-  --danger:#ff5577;
-  --gold:#d4af37;
-  --radius:22px;
-  --shadow:0 20px 60px rgba(0,0,0,.35);
-}
+        /* PREMIUM DYNAMIC HUD NAVIGATION HEADER BAR */
+        .hud-header {
+            background: rgba(15, 23, 42, 0.85);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+            padding: 16px 20px;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 4px 30px rgba(0,0,0,0.5);
+        }
+        .hud-brand {
+            font-size: 22px;
+            font-weight: 900;
+            background: linear-gradient(135deg, #ff79c6, #00f2fe, #bd93f9);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            letter-spacing: -0.5px;
+            text-transform: uppercase;
+        }
+        .wallet-node {
+            background: rgba(0, 242, 254, 0.1);
+            border: 1px solid rgba(0, 242, 254, 0.3);
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 13px;
+            font-weight: 800;
+            color: #00f2fe;
+            box-shadow: 0 0 15px rgba(0, 242, 254, 0.15);
+        }
 
-html,body{width:100%;min-height:100%;background:#050611;color:var(--text)}
-body{
-  font-family:Inter,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
-  overflow-x:hidden;
-}
-button,input,textarea,select{font:inherit}
-button{cursor:pointer}
-a{color:inherit;text-decoration:none}
+        /* HARD-CORE WORKSPACE LAYOUT (RESPONSIVE SEAMLESS ENGINE) */
+        .workspace-layout-matrix {
+            padding: 40px 15px 100px 15px !important;
+            display: flex !important;
+            flex-direction: column !important;
+            align-items: center !important;
+            justify-content: flex-start !important;
+            min-height: calc(100vh - 68px) !important;
+            width: 100% !important;
+        }
 
-body:before,
-body:after{
-  content:"";
-  position:fixed;
-  width:55vw;height:55vw;
-  border-radius:50%;
-  filter:blur(90px);
-  opacity:.15;
-  pointer-events:none;
-  z-index:-2;
-}
-body:before{
-  background:#00f0ff;
-  left:-20vw;top:-20vw;
-  animation:orb1 9s ease-in-out infinite alternate;
-}
-body:after{
-  background:#ff00e4;
-  right:-20vw;bottom:-20vw;
-  animation:orb2 11s ease-in-out infinite alternate;
-}
-@keyframes orb1{to{transform:translate(15vw,12vh) scale(1.2);opacity:.23}}
-@keyframes orb2{to{transform:translate(-15vw,-10vh) scale(1.25);opacity:.2}}
-@keyframes breathe{0%,100%{opacity:.55}50%{opacity:1}}
-@keyframes spin{to{transform:rotate(360deg)}}
-@keyframes slideIn{from{transform:translateY(15px);opacity:0}to{transform:none;opacity:1}}
-@keyframes shimmer{from{background-position:200% 0}to{background-position:-200% 0}}
+        /* HIGH-END GLASSMORPHISM PLATFORM APPLICATION CONTAINER CARD */
+        .saas-core-app-plate {
+            background: rgba(15, 23, 42, 0.65) !important;
+            backdrop-filter: blur(25px) !important;
+            -webkit-backdrop-filter: blur(25px) !important;
+            border: 2px solid rgba(0, 242, 254, 0.25) !important;
+            padding: 35px 24px !important;
+            border-radius: 28px !important;
+            box-shadow: 0 30px 70px rgba(0, 0, 0, 0.65), inset 0 1px 1px rgba(255, 255, 255, 0.15) !important;
+            width: 100% !important;
+            max-width: 430px !important;
+            box-sizing: border-box !important;
+            text-align: center !important;
+            margin-bottom: 25px !important;
+        }
+        .saas-lbl-category {
+            color: #ff79c6 !important;
+            font-size: 11px !important;
+            font-weight: 800 !important;
+            letter-spacing: 1.5px !important;
+            text-transform: uppercase !important;
+            margin-bottom: 6px !important;
+            display: block !important;
+        }
+        .saas-core-app-plate h2 {
+            font-size: 25px !important;
+            font-weight: 900 !important;
+            margin: 0 0 10px 0 !important;
+            letter-spacing: -0.5px !important;
+            color: #ffffff !important;
+        }
+        .saas-core-app-plate p {
+            color: #94a3b8 !important;
+            font-size: 13.5px !important;
+            margin: 0 0 25px 0 !important;
+            line-height: 1.6 !important;
+        }
 
-.app{
-  min-height:100vh;
-  position:relative;
-  background:
-    radial-gradient(circle at 50% -10%,rgba(100,0,255,.15),transparent 40%),
-    linear-gradient(135deg,#050611,#0c0820 50%,#060814);
-}
+        /* 100% FIXED HIGH-CONTRAST CLICKABLE FILE LOADING PORTAL GRAPHIC */
+        .stark-upload-reactor-box {
+            border: 2px dashed rgba(0, 242, 254, 0.4) !important;
+            padding: 40px 20px !important;
+            border-radius: 20px !important;
+            cursor: pointer !important;
+            background: rgba(7, 11, 19, 0.5) !important;
+            transition: all 0.3s ease !important;
+            margin-bottom: 25px !important;
+        }
+        .stark-upload-reactor-box:hover {
+            border-color: #ff79c6 !important;
+            background: rgba(0, 242, 254, 0.04) !important;
+        }
+        .reactor-prompt-main-lbl {
+            color: #f8f8f2 !important;
+            font-size: 15px !important;
+            font-weight: 700 !important;
+            display: block !important;
+        }
 
-.header{
-  position:sticky;
-  top:0;
-  z-index:100;
-  height:76px;
-  display:flex;
-  align-items:center;
-  gap:18px;
-  padding:12px 24px;
-  background:rgba(5,6,17,.78);
-  border-bottom:1px solid var(--border);
-  backdrop-filter:blur(22px);
-}
-.brand{
-  min-width:205px;
-  display:flex;
-  align-items:center;
-  gap:10px;
-  font-size:20px;
-  font-weight:900;
-  letter-spacing:-.6px;
-}
-.brand-mark{
-  width:38px;height:38px;border-radius:12px;
-  display:grid;place-items:center;
-  background:linear-gradient(135deg,var(--accent),var(--accent2));
-  color:#050611;
-  box-shadow:0 0 25px rgba(0,240,255,.3);
-  font-weight:1000;
-}
-.brand span{background:linear-gradient(90deg,#fff,var(--accent));-webkit-background-clip:text;color:transparent}
+        /* SLIDER ADJUSTMENT CONSOLE STYLES SHEET */
+        .mechanical-range-console {
+            background: rgba(10, 15, 26, 0.8) !important;
+            padding: 16px !important;
+            border-radius: 16px !important;
+            border: 1px solid rgba(255, 255, 255, 0.06) !important;
+            margin-bottom: 25px !important;
+            text-align: left !important;
+        }
+        .console-meta-strip-row {
+            display: flex !important;
+            justify-content: space-between !important;
+            color: #f8fafc !important;
+            font-size: 13.5px !important;
+            font-weight: 700 !important;
+            margin-bottom: 8px !important;
+            text-transform: uppercase !important;
+        }
+        .cyber-range-input-bar {
+            width: 100% !important;
+            height: 6px !important;
+            background: #1e293b !important;
+            border-radius: 10px !important;
+            outline: none !important;
+            -webkit-appearance: none !important;
+            cursor: pointer !important;
+        }
+        .cyber-range-input-bar::-webkit-slider-thumb {
+            -webkit-appearance: none !important;
+            width: 18px !important;
+            height: 18px !important;
+            border-radius: 50% !important;
+            background: #00f2fe !important;
+            box-shadow: 0 0 10px #00f2fe !important;
+        }
 
-.tracker{
-  flex:1;
-  max-width:620px;
-  height:44px;
-  position:relative;
-}
-.tracker input{
-  width:100%;height:100%;
-  padding:0 18px 0 45px;
-  border:1px solid var(--border);
-  border-radius:14px;
-  background:rgba(255,255,255,.045);
-  color:var(--text);
-  outline:none;
-}
-.tracker input:focus{
-  border-color:rgba(0,240,255,.5);
-  box-shadow:0 0 0 3px rgba(0,240,255,.08);
-}
-.tracker-icon{
-  position:absolute;left:15px;top:12px;color:var(--accent);
-}
+        /* LIVE TELEMETRY DISPLAY METRICS RACK GAUGE */
+        .telemetry-board-rack {
+            display: none;
+            grid-template-columns: 1fr 1fr !important;
+            gap: 12px !important;
+            margin-bottom: 25px !important;
+        }
+        .telemetry-cell-unit-block {
+            background: rgba(30, 41, 59, 0.5) !important;
+            padding: 14px !important;
+            border-radius: 16px !important;
+            border: 1px solid rgba(255, 255, 255, 0.04) !important;
+            text-align: center !important;
+        }
+        .unit-block-lbl-title { color: #64748b !important; font-size: 11px !important; display: block; font-weight: 700; text-transform: uppercase; margin-bottom: 4px; }
+        .unit-block-data-val { color: #00f2fe !important; font-size: 16px !important; font-weight: 800; }
 
-.wallet{
-  margin-left:auto;
-  display:flex;align-items:center;gap:12px;
-  min-width:190px;
-  padding:8px 13px;
-  border:1px solid rgba(0,240,255,.2);
-  border-radius:15px;
-  background:rgba(0,240,255,.045);
-}
-.coin{
-  width:31px;height:31px;border-radius:50%;
-  display:grid;place-items:center;
-  background:linear-gradient(135deg,#fff,var(--accent));
-  color:#051018;
-  font-size:13px;font-weight:900;
-}
-.wallet strong{display:block;font-size:15px}
-.wallet small{display:block;color:var(--muted);font-size:10px}
+        /* PREMIUM DYNAMIC INTERACTIVE CONVERSION TRIGGER ACTION BUTTON */
+        .saas-trigger-payout-execution-btn {
+            width: 100% !important;
+            background: linear-gradient(135deg, #00f2fe 0%, #bd93f9 100%) !important;
+            color: #ffffff !important;
+            border: none !important;
+            padding: 16px !important;
+            font-size: 15px !important;
+            font-weight: 800 !important;
+            border-radius: 18px !important;
+            cursor: pointer !important;
+            transition: all 0.2s ease !important;
+            box-shadow: 0 8px 25px rgba(0, 242, 254, 0.3) !important;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        .saas-trigger-payout-execution-btn:hover {
+            transform: translateY(-1px) !important;
+            box-shadow: 0 12px 30px rgba(0, 242, 254, 0.45) !important;
+        }
 
-.rank-progress{
-  width:110px;
-}
-.rank-progress div{
-  height:4px;background:rgba(255,255,255,.08);border-radius:99px;overflow:hidden;
-}
-.rank-progress i{
-  display:block;height:100%;
-  width:0;
-  background:linear-gradient(90deg,var(--accent),var(--accent2));
-  transition:width .5s;
-}
-.rank-progress small{font-size:9px;color:var(--muted);white-space:nowrap}
-
-.shell{
-  width:min(1500px,100%);
-  margin:auto;
-  padding:24px;
-  display:grid;
-  grid-template-columns:7fr 3fr;
-  gap:22px;
-}
-
-.workspace,.sidebar{
-  min-width:0;
-}
-
-.tool-container{
-  min-height:650px;
-  border:1px solid var(--border);
-  border-radius:28px;
-  background:var(--panel);
-  box-shadow:var(--shadow);
-  overflow:hidden;
-  position:relative;
-}
-
-.tool-container[data-theme="cyberpunk"]{
-  --accent:#ff00e4;--accent2:#00f0ff;
-  background:
-    linear-gradient(rgba(255,255,255,.015) 1px,transparent 1px),
-    linear-gradient(90deg,rgba(255,255,255,.012) 1px,transparent 1px),
-    #0d0221;
-  background-size:35px 35px;
-}
-.tool-container[data-theme="gold-minimal"]{
-  --accent:#d4af37;--accent2:#fff0a8;
-  background:#0e0e0e;
-}
-.tool-container[data-theme="pastel"]{
-  --accent:#ff9eec;--accent2:#9ee7ff;
-  background:linear-gradient(135deg,#241629,#10242c);
-}
-.tool-container[data-theme="ice"]{
-  --accent:#2e86ff;--accent2:#75d7ff;
-  background:linear-gradient(135deg,#091522,#102338);
-}
-.tool-container[data-theme="matrix"]{
-  --accent:#39ff14;--accent2:#9aff8a;
-  background:#0a0f0a;
-  font-family:"JetBrains Mono",monospace;
-}
-
-.tool-head{
-  padding:30px 30px 22px;
-  border-bottom:1px solid var(--border);
-}
-.tool-kicker{
-  color:var(--accent);
-  text-transform:uppercase;
-  font-size:10px;
-  font-weight:900;
-  letter-spacing:2px;
-  margin-bottom:9px;
-}
-.tool-title{font-size:clamp(26px,3vw,40px);font-weight:900;letter-spacing:-1.5px}
-.tool-description{margin-top:8px;color:var(--muted);line-height:1.6;max-width:750px}
-
-.tool-body{padding:28px}
-.tool-grid{
-  display:grid;
-  grid-template-columns:repeat(2,minmax(0,1fr));
-  gap:16px;
-}
-.card{
-  border:1px solid var(--border);
-  background:rgba(255,255,255,.035);
-  border-radius:18px;
-  padding:18px;
-}
-.card h3{font-size:14px;margin-bottom:12px}
-.field{margin-bottom:15px}
-.field:last-child{margin-bottom:0}
-label{
-  display:flex;justify-content:space-between;
-  margin-bottom:7px;
-  color:var(--muted);
-  font-size:11px;
-  font-weight:700;
-}
-input[type=text],
-input[type=number],
-input[type=date],
-input[type=url],
-textarea,
-select{
-  width:100%;
-  border:1px solid var(--border);
-  border-radius:12px;
-  background:rgba(0,0,0,.25);
-  color:var(--text);
-  padding:12px 13px;
-  outline:none;
-}
-textarea{min-height:170px;resize:vertical}
-input:focus,textarea:focus,select:focus{border-color:var(--accent)}
-input[type=range]{width:100%;accent-color:var(--accent)}
-
-.btn{
-  border:1px solid var(--border);
-  background:rgba(255,255,255,.06);
-  color:var(--text);
-  padding:11px 15px;
-  border-radius:12px;
-  font-weight:800;
-  transition:.2s;
-}
-.btn:hover{transform:translateY(-1px);border-color:var(--accent)}
-.btn-primary{
-  background:linear-gradient(135deg,var(--accent),var(--accent2));
-  color:#050611;border:0;
-  box-shadow:0 8px 25px rgba(0,240,255,.15);
-}
-.btn-success{background:rgba(57,255,136,.12);border-color:rgba(57,255,136,.3);color:#75ffab}
-.btn-danger{color:#ff7d99}
-.btn:disabled{opacity:.35;cursor:not-allowed;transform:none}
-
-.actions{display:flex;gap:9px;flex-wrap:wrap;margin-top:16px}
-
-.metric-grid{
-  display:grid;
-  grid-template-columns:repeat(4,1fr);
-  gap:10px;
-  margin-top:15px;
-}
-.metric{
-  padding:13px;
-  border:1px solid var(--border);
-  border-radius:14px;
-  background:rgba(255,255,255,.025);
-}
-.metric span{display:block;color:var(--muted);font-size:9px;text-transform:uppercase;letter-spacing:1px}
-.metric strong{display:block;margin-top:5px;font-size:18px}
-
-.drop{
-  border:1px dashed rgba(0,240,255,.4);
-  border-radius:20px;
-  min-height:180px;
-  display:grid;
-  place-items:center;
-  text-align:center;
-  padding:25px;
-  background:rgba(0,240,255,.025);
-}
-.drop.drag{background:rgba(0,240,255,.08);border-color:var(--accent)}
-.drop input{display:none}
-.drop-icon{font-size:38px;margin-bottom:8px}
-.drop p{color:var(--muted);font-size:12px}
-.preview{
-  max-width:100%;
-  max-height:250px;
-  border-radius:13px;
-  margin:15px auto;
-  display:block;
-  object-fit:contain;
-}
-
-.sidebar{
-  display:flex;
-  flex-direction:column;
-  gap:18px;
-}
-.side-card{
-  border:1px solid var(--border);
-  background:var(--panel);
-  border-radius:22px;
-  padding:19px;
-  box-shadow:var(--shadow);
-}
-.side-title{
-  display:flex;align-items:center;justify-content:space-between;
-  font-size:13px;font-weight:900;margin-bottom:14px;
-}
-.side-title span{color:var(--accent);font-size:10px}
-.related-list{display:grid;gap:9px}
-.related{
-  width:100%;
-  display:flex;align-items:center;gap:11px;
-  text-align:left;
-  padding:12px;
-  border:1px solid var(--border);
-  background:rgba(255,255,255,.025);
-  border-radius:14px;
-  color:var(--text);
-}
-.related:hover{border-color:var(--accent);background:rgba(255,255,255,.05)}
-.related-icon{
-  width:35px;height:35px;border-radius:10px;
-  display:grid;place-items:center;
-  background:rgba(0,240,255,.08);
-}
-.related strong{display:block;font-size:11px}
-.related small{display:block;color:var(--muted);margin-top:2px;font-size:9px}
-
-.milestone{
-  display:grid;grid-template-columns:48px 1fr;gap:12px;
-  align-items:center;
-  padding:12px 0;border-bottom:1px solid var(--border);
-}
-.milestone:last-child{border:0}
-.rank-badge{
-  width:46px;height:46px;border-radius:15px;
-  display:grid;place-items:center;
-  border:1px solid rgba(255,255,255,.15);
-  background:rgba(255,255,255,.05);
-  animation:breathe 3s ease-in-out infinite;
-}
-.milestone strong{font-size:11px}
-.milestone small{display:block;color:var(--muted);font-size:9px;margin-top:3px}
-
-.streak{
-  display:flex;align-items:center;justify-content:space-between;
-  padding:15px;
-  border-radius:16px;
-  background:linear-gradient(135deg,rgba(255,0,228,.1),rgba(0,240,255,.08));
-  border:1px solid rgba(255,255,255,.1);
-}
-.streak strong{font-size:25px}
-.streak small{display:block;color:var(--muted);font-size:9px}
-
-.tabs{
-  display:grid;
-  grid-template-columns:repeat(5,1fr);
-  position:fixed;
-  bottom:0;left:0;right:0;
-  z-index:110;
-  padding:7px 8px calc(7px + env(safe-area-inset-bottom));
-  background:rgba(5,6,17,.92);
-  backdrop-filter:blur(18px);
-  border-top:1px solid var(--border);
-  transform:translateY(110%);
-  transition:.3s;
-}
-.tab{
-  border:0;background:transparent;color:var(--muted);
-  padding:7px 2px;font-size:9px;
-}
-.tab.active{color:var(--accent)}
-.tab b{display:block;font-size:18px;margin-bottom:2px}
-
-.drawer{
-  position:fixed;right:0;top:76px;bottom:0;
-  width:min(390px,92vw);
-  background:#090b18;
-  border-left:1px solid var(--border);
-  z-index:120;
-  transform:translateX(105%);
-  transition:.3s;
-  padding:20px;
-  overflow:auto;
-}
-.drawer.open{transform:none}
-.drawer-close{float:right}
-
-.overlay{
-  position:fixed;inset:0;z-index:300;
-  display:none;place-items:center;
-  background:rgba(0,0,0,.78);
-  backdrop-filter:blur(12px);
-}
-.overlay.show{display:grid}
-.rank-card{
-  width:min(440px,90vw);
-  text-align:center;
-  padding:40px;
-  border:1px solid rgba(255,255,255,.2);
-  border-radius:28px;
-  background:linear-gradient(145deg,#11152b,#090a17);
-  animation:rankFlip 1.5s ease;
-}
-@keyframes rankFlip{
-  0%{transform:rotateY(90deg) scale(.7);opacity:0}
-  45%{transform:rotateY(0) scale(1);opacity:1}
-  100%{transform:rotateY(0)}
-}
-.rank-card .big{font-size:70px;margin-bottom:15px}
-.rank-card h2{font-size:28px}
-.rank-card p{color:var(--muted);margin-top:8px}
-
-.toast-wrap{
-  position:fixed;
-  right:22px;bottom:22px;
-  z-index:250;
-  display:grid;gap:9px;
-  pointer-events:none;
-}
-.toast{
-  min-width:250px;
-  padding:13px 16px;
-  border:1px solid rgba(0,240,255,.25);
-  border-radius:14px;
-  background:rgba(8,11,25,.94);
-  box-shadow:0 15px 35px rgba(0,0,0,.35);
-  animation:slideIn .25s ease;
-}
-.toast strong{color:var(--accent)}
-.toast small{display:block;color:var(--muted);margin-top:3px}
-
-.output{
-  margin-top:15px;
-  padding:15px;
-  border:1px solid var(--border);
-  border-radius:14px;
-  background:rgba(0,0,0,.22);
-  overflow:auto;
-}
-.code-output{
-  white-space:pre-wrap;
-  word-break:break-word;
-  font-family:ui-monospace,SFMono-Regular,Menlo,monospace;
-  font-size:11px;
-  line-height:1.6;
-}
-.ok{color:var(--success)}
-.err{color:#ff718e}
-.center{text-align:center}
-.hidden{display:none!important}
-.mono{font-family:ui-monospace,monospace}
-.switches{display:flex;flex-wrap:wrap;gap:8px}
-.switch{
-  border:1px solid var(--border);
-  background:rgba(255,255,255,.035);
-  padding:8px 10px;
-  border-radius:10px;
-  color:var(--muted);
-  font-size:10px;
-}
-.switch.active{border-color:var(--accent);color:var(--accent);background:rgba(0,240,255,.06)}
-
-@media(max-width:1024px){
-  .shell{grid-template-columns:1fr}
-  .sidebar{display:none}
-  .header{padding:10px 16px}
-  .brand{min-width:auto}
-  .tracker{max-width:none}
-  .rank-progress{display:none}
-  .wallet{min-width:auto}
-  .desktop-menu{display:none}
-}
-
-@media(max-width:767px){
-  .header{height:68px;gap:8px}
-  .brand{font-size:14px}
-  .brand-mark{width:32px;height:32px;border-radius:9px}
-  .brand span{display:none}
-  .tracker{height:39px}
-  .tracker input{font-size:11px;padding-left:37px}
-  .wallet{padding:5px 7px;gap:5px}
-  .wallet .coin{width:27px;height:27px}
-  .wallet strong{font-size:11px}
-  .wallet small{display:none}
-  .shell{padding:10px 10px 85px}
-  .tool-container{min-height:700px;border-radius:20px}
-  .tool-head{padding:23px 19px 17px}
-  .tool-title{font-size:26px}
-  .tool-body{padding:18px}
-  .tool-grid{grid-template-columns:1fr}
-  .metric-grid{grid-template-columns:repeat(2,1fr)}
-  .tabs{transform:none}
-  .toast-wrap{right:10px;left:10px;bottom:76px}
-  .toast{min-width:0}
-}
-</style>
+        /* FIXED BOTTOM NAVIGATION BAR WITH HUDS CHANNELS FOR DEVICE SCALES */
+        .bottom-hud-ports-dock {
+            background: rgba(15, 23, 42, 0.9) !important;
+            backdrop-filter: blur(20px) !important;
+            border-top: 1px solid rgba(255, 255, 255, 0.08) !important;
+            position: fixed !important;
+            bottom: 0 !important;
+            left: 0 !important;
+            width: 100% !important;
+            padding: 12px 10px !important;
+            display: flex !important;
+            justify-content: space-around !important;
+            z-index: 1000 !important;
+        }
+        .hud-port-node-btn {
+            background: transparent !important;
+            border: none !important;
+            color: #64748b !important;
+            font-size: 11px !important;
+            font-weight: 700 !important;
+            cursor: pointer !important;
+            display: flex !important;
+            flex-direction: column !important;
+            align-items: center !important;
+            gap: 4px !important;
+            text-transform: uppercase;
+        }
+        .hud-port-node-btn.active-node, .hud-port-node-btn:hover { color: #00f2fe !important; }
+        .hud-port-node-btn span { font-size: 18px !important; }
+    </style>
 </head>
-
 <body>
-<div class="app">
 
-<header class="header">
-  <div class="brand">
-    <div class="brand-mark">∞</div>
-    <span>Toolbox Infinity</span>
-  </div>
-
-  <div class="tracker">
-    <div class="tracker-icon">⌕</div>
-    <input id="toolSearch" type="text" placeholder="Search tools, utilities, calculators..." autocomplete="off">
-  </div>
-
-  <div class="wallet">
-    <div class="coin">T</div>
-    <div>
-      <strong id="walletBalance">0</strong>
-      <small>Infinity Tokens</small>
-    </div>
-    <div class="rank-progress">
-      <small id="rankProgressText">0 / 500</small>
-      <div><i id="rankProgressBar"></i></div>
-    </div>
-  </div>
-</header>
-
-<main class="shell">
-
-<section class="workspace">
-
-<div class="tool-container" id="toolContainer" data-theme="cyberpunk">
-  <div class="tool-head">
-    <div class="tool-kicker" id="toolCategory">Compression Utilities</div>
-    <h1 class="tool-title" id="toolTitle">Client-Side Image Compressor</h1>
-    <p class="tool-description" id="toolDescription">
-      Compress images directly in your browser with live file-size metrics. Your files never leave this device.
-    </p>
-  </div>
-  <div class="tool-body" id="toolBody"></div>
+<div class="hud-header">
+    <div class="hud-brand">Toolbox Infinity</div>
+    <div class="wallet-node" id="globalWalletLedger">Balance: 0 XP ✨</div>
 </div>
 
-</section>
-
-<aside class="sidebar">
-
-<div class="side-card">
-  <div class="side-title">
-    Related Smart Utilities
-    <span>LIVE MAP</span>
-  </div>
-  <div class="related-list" id="relatedPanel"></div>
-</div>
-
-<div class="side-card">
-  <div class="side-title">
-    Personal Milestones
-    <span>BEAT YOUR RECORD</span>
-  </div>
-
-  <div class="milestone">
-    <div class="rank-badge">🔥</div>
-    <div>
-      <strong>Current Streak</strong>
-      <small id="sideStreak">0 days</small>
-    </div>
-  </div>
-
-  <div class="milestone">
-    <div class="rank-badge">🏆</div>
-    <div>
-      <strong>Longest Streak</strong>
-      <small id="longestStreak">0 days</small>
-    </div>
-  </div>
-
-  <div class="milestone">
-    <div class="rank-badge">⚡</div>
-    <div>
-      <strong>Lifetime Tokens</strong>
-      <small id="lifetimeTokens">0 tokens</small>
-    </div>
-  </div>
-
-  <div class="milestone">
-    <div class="rank-badge">📊</div>
-    <div>
-      <strong>Most Tokens in One Day</strong>
-      <small id="dailyBest">0 tokens</small>
-    </div>
-  </div>
-</div>
-
-<div class="side-card">
-  <div class="side-title">
-    Daily Streak
-    <span id="streakStatus">READY</span>
-  </div>
-  <div class="streak">
-    <div>
-      <strong id="streakNumber">0</strong>
-      <small>consecutive days</small>
-    </div>
-    <div style="font-size:32px">🔥</div>
-  </div>
-</div>
-
-<div class="side-card">
-  <div class="side-title">Track A Rewards <span>FREE FOREVER</span></div>
-  <p style="font-size:11px;color:var(--muted);line-height:1.6">
-    Tokens are XP only. They unlock cosmetic ranks, themes, early tool access and profile flair. No cash redemption is enabled.
-  </p>
-</div>
-
-</aside>
-
-</main>
-
-<nav class="tabs">
-  <button class="tab active" onclick="scrollHome()"><b>⌂</b>Home</button>
-  <button class="tab" onclick="focusSearch()"><b>⌕</b>Tools</button>
-  <button class="tab" onclick="showWallet()"><b>◈</b>Wallet</button>
-  <button class="tab" onclick="showRank()"><b>◆</b>Rank</button>
-  <button class="tab" onclick="openSettings()"><b>⚙</b>Profile</button>
-</nav>
-
-<div class="drawer" id="drawer">
-  <button class="btn drawer-close" onclick="closeDrawer()">×</button>
-  <h2 style="margin-bottom:20px">Smart Utilities</h2>
-  <div class="related-list" id="drawerRelated"></div>
-</div>
-
-<div class="overlay" id="rankOverlay" onclick="closeRank(event)">
-  <div class="rank-card">
-    <div class="big" id="overlayBadge">⚛️</div>
-    <h2 id="overlayTitle">Quantum Hacker</h2>
-    <p id="overlayText">You've reached a new Infinity rank.</p>
-  </div>
-</div>
-
-<div class="toast-wrap" id="toastWrap"></div>
-
-</div>
-
-<script>
-"use strict";
-
-/* =========================================================
-   TOOLBOX INFINITY
-   SINGLE-FILE CLIENT-SIDE APPLICATION
-   ========================================================= */
-
-/* ---------- STORAGE ---------- */
-
-const STORAGE={
-  wallet:"tbx_wallet",
-  streak:"tbx_streak",
-  referral:"tbx_ref_id",
-  referred:"tbx_referred_by",
-  audio:"tbx_audio_enabled",
-  stats:"tbx_stats",
-  theme:"tbx_theme"
-};
-
-function readJSON(key,fallback){
-  try{
-    const raw=localStorage.getItem(key);
-    return raw?JSON.parse(raw):fallback;
-  }catch{
-    return fallback;
-  }
-}
-
-function writeJSON(key,value){
-  localStorage.setItem(key,JSON.stringify(value));
-}
-
-/* ---------- WALLET / TRACK A ---------- */
-
-function getWallet(){
-  return readJSON(STORAGE.wallet,{
-    balance:0,
-    lifetimeEarned:0,
-    log:[]
-  });
-}
-
-function creditTokens(amount,reason){
-  amount=Math.max(0,Math.floor(Number(amount)||0));
-  if(!amount)return;
-
-  const wallet=getWallet();
-  wallet.balance+=amount;
-  wallet.lifetimeEarned+=amount;
-  wallet.log.push({
-    amount,
-    reason,
-    ts:Date.now()
-  });
-
-  if(wallet.log.length>200){
-    wallet.log=wallet.log.slice(-200);
-  }
-
-  writeJSON(STORAGE.wallet,wallet);
-  updateWalletUI();
-  updateDailyBest();
-  triggerRewardToast(amount,reason);
-}
-
-function updateWalletUI(){
-  const wallet=getWallet();
-  const rank=getRank(wallet.balance);
-
-  document.getElementById("walletBalance").textContent=
-    wallet.balance.toLocaleString();
-
-  const next=rank.next;
-  if(next===Infinity){
-    document.getElementById("rankProgressText").textContent=
-      wallet.balance.toLocaleString()+" / MAX";
-    document.getElementById("rankProgressBar").style.width="100%";
-  }else{
-    const pct=Math.min(100,
-      ((wallet.balance-rank.min)/(next-rank.min))*100
-    );
-    document.getElementById("rankProgressText").textContent=
-      wallet.balance.toLocaleString()+" / "+next.toLocaleString();
-    document.getElementById("rankProgressBar").style.width=pct+"%";
-  }
-
-  document.getElementById("lifetimeTokens").textContent=
-    wallet.lifetimeEarned.toLocaleString()+" tokens";
-}
-
-function triggerRewardToast(amount,reason){
-  const wrap=document.getElementById("toastWrap");
-  const toast=document.createElement("div");
-  toast.className="toast";
-  toast.innerHTML=
-    "<strong>+"
-    +amount+
-    " Tokens</strong><small>"
-    +escapeHTML(reason)+
-    "</small>";
-
-  wrap.appendChild(toast);
-  playChime(amount>=50?660:880,amount>=50?1320:1760);
-
-  setTimeout(()=>{
-    toast.style.opacity="0";
-    toast.style.transform="translateY(8px)";
-    t
+<div class="workspace-layout-matrix">
+    <div class="saas-core-app-plate">
+        <span class="saas-lbl-category">Compression Utilities</span>
+        <h2>Client-Side Image Compressor</h2>
+        <p>Compress heavy diagnostic images directly in your web browser container window with real-time scaling parameters seamlessly offline.</p>
+        
+        <!-- Native Secure Upload Elements Trigger Framework Links -->
