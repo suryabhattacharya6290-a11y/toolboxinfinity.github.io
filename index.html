@@ -1,1 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Toolbox Infinity - Multi-Utility SaaS Engine</title>
+    <style>
+        /* FULL-SCREEN OVERRIDES FOR STANDALONE HIGH-TECH VIEW */
+        html, body {
+            background: radial-gradient(circle at 50% 20%, #1e1b4b 0%, #0f172a 60%, #020617 100%) !important;
+            margin: 0 !important;
+            padding: 0 !important;
+            width: 100% !important;
+            min-height: 100vh !important;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif !important;
+            color: #f8fafc;
+            overflow-x: hidden;
+        }
+        * { box-sizing: border-box; }
 
+        /* THE MILLION-DOLLAR DASHBOARD CORE HUD */
+        .hud-header {
+            background: rgba(15, 23, 42, 0.8);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border-bottom: 2px solid rgba(6, 182, 212, 0.3);
+            padding: 15px 20px;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.4);
+        }
+        .hud-brand {
+            font-size: 22px;
+            font-weight: 900;
+            background: linear-gradient(135deg, #fbbf24, #e11d48, #06b6d4);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+        .wallet-node {
+            background: rgba(6, 182, 212, 0.1);
+            border: 1px solid #06b6d4;
+            padding: 8px 14px;
+            border-radius: 20px;
+            font-size: 13px;
+            font-weight: 800;
+            color: #22d3ee;
+            box-shadow: 0 0 10px rgba(6, 182, 212, 0.2);
+        }
+
+        /* 10-CATEGORY RELATIONAL SIDEBAR MATRIX (RESPONSIVE) */
+        .app-workspace {
+            display: grid;
+            grid-template-columns: 260px 1fr;
+            min-height: calc(100vh - 65px);
+        }
+        @media (max-width: 768px) {
+            .app-workspace { grid-template-columns: 1fr; }
+            .category-sidebar { display: flex !important; overflow-x: auto; white-space: nowrap; padding: 10px !important; height: auto !important; border-right: none !important; border-bottom: 2px solid rgba(225, 29, 72, 0.2); }
+            .cat-btn { margin-bottom: 0 !important; margin-right: 8px; display: inline-block !important; }
+        }
+
+        .category-sidebar {
+            background: rgba(13, 18, 30, 0.6);
+            border-right: 2px solid rgba(225, 29, 72, 0.2);
+            padding: 20px 10px;
+        }
+        .cat-btn {
+            width: 100%;
+            background: rgba(30, 41, 59, 0.4);
+            border: 1px solid rgba(255,255,255,0.05);
+            padding: 12px 15px;
+            border-radius: 12px;
+            color: #9ca3af;
+            text-align: left;
+            font-weight: 700;
+            font-size: 13px;
+            cursor: pointer;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+            transition: all 0.3s ease;
+        }
+        .cat-btn:hover, .cat-btn.active {
+            background: linear-gradient(135deg, #e11d48, #9f1239);
+            color: white;
+            border-color: #f43f5e;
+            box-shadow: 0 4px 15px rgba(225, 29, 72, 0.3);
+        }
+
+        /* MAIN TOOL COMPONENT GRID */
+        .tool-display-panel { padding: 30px 20px; display: flex; flex-direction: column; align-items: center; }
+        .tool-card {
+            background: rgba(13, 18, 30, 0.85);
+            border: 2px solid #06b6d4;
+            border-radius: 24px;
+            padding: 30px 20px;
+            width: 100%;
+            max-width: 440px;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+            text-align: center;
+            display: none;
+        }
+        .tool-card.active { display: block; }
+        .tool-card h3 { margin: 0 0 8px 0; font-size: 24px; font-weight: 900; color: #fbbf24; text-transform: uppercase; }
+        .tool-card p { color: #9ca3af; font-size: 13px; margin: 0 0 25px 0; line-height: 1.5; }
+
+        /* RECENT FUNCTIONAL WIDGET SUB-COMPONENTS */
+        .stark-bar-input {
+            background: rgba(7, 11, 19, 0.7);
+            border: 2px dashed rgba(6, 182, 212, 0.4);
+            border-radius: 14px;
+            padding: 15px;
+            margin-bottom: 20px;
+            cursor: pointer;
+            font-weight: 700;
+            color: #9ca3af;
+        }
+        .stark-bar-input:hover { border-color: #fbbf24; color: #fff; }
+        
+        .stark-range-group {
+            background: #090d16;
+            padding: 15px;
+            border-radius: 14px;
+            border: 1px solid rgba(6, 182, 212, 0.2);
+            text-align: left;
+            margin-bottom: 20px;
+        }
+        .range-bar { width: 100%; -webkit-appearance: none; height: 6px; background: #1f2937; border-radius: 5px; outline: none; }
+        .range-bar::-webkit-slider-thumb { -webkit-appearance: none; width: 18px; height: 18px; background: #06b6d4; border-radius: 50%; cursor: pointer; box-shadow: 0 0 10px #06b6d4; }
+
+        .telemetry-shelf { display: none; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 20px; }
+        .telemetry-block { background: rgba(6, 182, 212, 0.03); border: 1px solid rgba(6, 182, 212, 0.15); padding: 10px; border-radius: 12px; }
+        .telemetry-lbl { display: block; font-size: 10px; color: #6b7280; font-weight: 700; text-transform: uppercase; margin-bottom: 4px; }
+        .telemetry-val { font-size: 14px; font-weight: 800; color: #fbbf24; }
+
+        .stark-action-btn {
+            width: 100%;
+            background: linear-gradient(135deg, #06b6d4, #0891b2);
+            color: white;
+            border: 1px solid #22d3ee;
+            padding: 15px;
+            font-size: 15px;
+            font-weight: 800;
+            border-radius: 14px;
+            cursor: pointer;
+            text-transform: uppercase;
+            box-shadow: 0 6px 20px rgba(6, 182, 212, 0.3);
+        }
+        .stark-action-btn:hover { background: linear-gradient(135deg, #e11d48, #9f1239); border-color: #f43f5e; box-shadow: 0 6px 20px rgba(225, 29, 72, 0.45); }
+
+        /* THE CONTEXTUAL SMART CROSS-SELLING MODULES ROW */
+        .cross-sell-shelf {
+            margin-top: 30px;
+            width: 100%;
+            max-width: 440px;
+            background: rgba(15, 23, 42, 0.5);
+            border: 1px solid rgba(255,255,255,0.06);
+            padding: 15px;
+            border-radius: 20px;
+            text-align: left;
+        }
+        .cross-sell-title { font-size: 12px; font-weight: 800; text-transform: uppercase; color: #e11d48; margin-bottom: 10px; letter-spacing: 0.5px; }
+        .cross-sell-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+        .cross-btn { background: #1e293b; border: 1px solid rgba(255,255,255,0.05); padding: 10px; border-radius: 10px; color: #94a3b8; font-size: 11px; font-weight: 700; cursor: pointer; text-align: center; }
+        .cross-btn:hover { border-color: #06b6d4; color: white; }
+
+        /* REWARDS REDEEM MATRIX SUB-PANEL BRIDGE */
+        .redeem-bridge-card {
+            background: linear-gradient(135deg, #1e1b4b, #311042) !important;
+            border: 2px dashed #fbbf24 !important;
+            margin-top: 35px;
+            max-width: 440px;
+            width: 100%;
+            padding: 25px 20px;
+            border-radius: 24px;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+        }
+        .withdraw-trigger-btn {
+            background: linear-gradient(135deg, #fbbf24, #d97706);
+            color: #000;
+            border: none;
+            padding: 14px;
+            font-weight: 900;
+            text-transform: uppercase;
+            font-size: 14px;
+            border-radius: 12px;
+            width: 100%;
+            cursor: not-allowed;
+            opacity: 0.5;
+            letter-spacing: 0.5px;
+        }
+        .withdraw-trigger-btn.unlocked { cursor: pointer; opacity: 1; box-shadow: 0 0 15px #fbbf24; }
+    </style>
+</head>
+<body>
+
+<div class="hud-header">
+    <div class="hud-brand">Toolbox Infinity</div>
+    <div class="wallet-node" id="walletDisplay">Balance: 0 Tokens ✨</div>
+</div>
+
+<div class="app-workspace">
+    <!-- AUTOMATED 10 CATEGORIES MATRIX SELECTION PANEL -->
+    <div class="category-sidebar">
+        <button class="cat-btn active" onclick="switchActiveTool(1)">🖼️ Media PDF</button>
+        <button class="cat-btn" onclick="switchActiveTool(2)">⚡ Compressor</button>
+        <button class="cat-btn" onclick="switchActiveTool(3)">📅 Age Calc</button>
+        <button class="cat-btn" onclick="switchActiveTool(4)">📝 Word Counter</button>
+        <button class="cat-btn" onclick="switchActiveTool(5)">💻 JSON Format</button>
+        <button class="cat-btn" onclick="switchActiveTool(6)">🔒 Security Gen</button>
+        <button class="cat-btn" onclick="switchActiveTool(7)">🔍 SEO Tags</button>
+        <button class="cat-btn" onclick="switchActiveTool(8)">📊 Tax & GST</button>
+        <button class="cat-btn" onclick="switchActiveTool(9)">🎨 Web Shadow</button>
+        <button class="cat-btn" onclick="switchActiveTool(10)">🔗 URL Metrics</button>
+    </div>
+
+    <div class="tool-display-panel">
+        <!-- TOOL MODULE 1: IMAGE TO PDF SUITE -->
+        <div class="tool-card active" id="toolBox1">
+            <h3>Image to PDF Suite</h3>
+            <p>Convert multiple graphic assets into a single high-fidelity print PDF layout flawlessly offline.</p>
+            <input type="file" id="pdfFileInput" accept="image/*" multiple style="display:none;">
+            <div class="stark-bar-input" id="pdfTrigger">Select Images Array...</div>
+  
